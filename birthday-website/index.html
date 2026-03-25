@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="A magical birthday surprise made with love, just for you." />
+  <title>Happy Birthday, My Love 🎂</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       FLOATING BACKGROUND PARTICLES (canvas)
+  ============================================================ -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ============================================================
+       FLOATING HEARTS LAYER
+  ============================================================ -->
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       LOADING SCREEN
+  ============================================================ -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-heart">💖</div>
+      <p class="loading-text">Preparing something magical…</p>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+  ============================================================ -->
+  <section id="hero" class="section hero-section">
+    <div class="hero-bg-image"></div>
+    <div class="hero-overlay"></div>
+
+    <!-- Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-content" id="hero-content">
+      <p class="hero-sub gsap-fade" data-delay="0.2">✨ A very special message for…</p>
+      <h1 class="hero-title gsap-fade" data-delay="0.5">
+        Happy Birthday<br />
+        <span class="hero-name script-font">My Honeybun - Nandani</span>
+      </h1>
+      <p class="hero-tagline gsap-fade" data-delay="0.8">
+        To the most rare girl in my entire world 🌸
+      </p>
+      <div class="hero-hearts gsap-fade" data-delay="1.0" aria-hidden="true">
+        <span>💕</span><span>🌹</span><span>💕</span>
+      </div>
+      <a href="#intro" class="btn-primary gsap-fade" id="open-surprise-btn" data-delay="1.2">
+        <span class="btn-sparkle">✨</span> Open Your Surprise
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — PERSONALIZED INTRO
+  ============================================================ -->
+  <section id="intro" class="section intro-section">
+    <div class="section-orb orb-pink"></div>
+    <div class="section-orb orb-purple"></div>
+
+    <div class="container">
+      <div class="section-badge gsap-slide-up">💌 A Message From the Heart</div>
+      <h2 class="section-title gsap-slide-up">Hey <span class="highlight-name">Nandani</span> 🌷</h2>
+
+      <div class="intro-card gsap-slide-up glass-card">
+        <p class="intro-text" id="intro-typing-text">
+          Do you know how the world looks a little brighter every time you smile?<br>
+          That’s because you carry sunshine wherever you go ☀️<br>
+          Today is the day the entire universe paused — just for a second —<br>
+          and decided to celebrate the most wonderful person it ever created. 💖
+        </p>
+
+        <p class="intro-text mt-2">
+          Kabhi kabhi lagta hai tumhe pata hi nahi hai tum kitni special ho…<br>
+          tumhari care, tumhari baatein, tumhari rare qualities…<br>
+          sab kuch itna real hai ki dil ko automatically sukoon milta hai 🤍
+        </p>
+
+        <p class="intro-text mt-2">
+          Aur haan… tum thodi si meri bhondu ho 😌<br>
+          thodi si meri honeybun…<br>
+          aur kabhi kabhi thodi si gusse wali bhi —<br>
+          jo muh todne ki baatein karti hai 😄<br>
+          <em>(jo secretly bahut cute lagti hai)</em>
+        </p>
+
+        <p class="intro-text mt-2">
+          I’ve searched for the right words a thousand times,<br>
+          but sach bolu… tum ho toh sab simple lagta hai —<br>
+          my peace, my home, and my happiness… my love ❤️
+        </p>
+
+        <p class="intro-text mt-2">
+          So today, <span class="highlight">Nandani</span>,<br>
+          this whole day — every moment, every smile — is just for you 🌸
+        </p>
+
+        <div class="intro-signature">
+          — <span class="script-font">With all my love, your Prince (Machoman😉❤️)</span>
+        </div>
+
+        <div class="scroll-hint gsap-fade">
+          <span>Keep scrolling 💫</span>
+          <div class="scroll-arrow">↓</div>
+        </div> <!-- intro-card -->
+      </div> <!-- container -->
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — PHOTO GALLERY
+  ============================================================ -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-badge gsap-slide-up">📸 Our Beautiful Moments</div>
+      <h2 class="section-title gsap-slide-up">A Glimpse of <span class="highlight">You</span></h2>
+      <p class="section-subtitle gsap-slide-up">Every photo tells a story I will cherish forever</p>
+
+      <!-- Swiper Carousel -->
+      <div class="swiper gallery-swiper gsap-slide-up" id="gallery-swiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="photo-card" data-src="assets/images/photo1.jpeg">
+              <img src="assets/images/photo1.jpeg" alt="My favorite smile" loading="lazy" />
+              <div class="photo-overlay">
+                <p class="photo-caption">First Time I viewed this story and replied to your story 💖</p>
+                <span class="photo-zoom-hint">Tap to view ✨</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="photo-card" data-src="assets/images/photo2.jpeg">
+              <img src="assets/images/photo2.jpeg" alt="Most beautiful moment" loading="lazy" />
+              <div class="photo-overlay">
+                <p class="photo-caption">In saree most beautiful bhondu🌹</p>
+                <span class="photo-zoom-hint">Tap to view ✨</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="photo-card" data-src="assets/images/photo3.jpeg">
+              <img src="assets/images/photo3.jpeg" alt="My sunshine" loading="lazy" />
+              <div class="photo-overlay">
+                <p class="photo-caption">Mera Pyarasa Bhondusa Gadhuda 😘</p>
+                <span class="photo-zoom-hint">Tap to view ✨</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="swiper-slide">
+            <div class="photo-card" data-src="assets/images/photo4.jpeg">
+              <img src="assets/images/photo4.jpeg" alt="My favorite moment" loading="lazy" />
+              <div class="photo-overlay">
+                <p class="photo-caption">Har photo mein… sirf tum hi perfect lagti ho 💫</p>
+                <span class="photo-zoom-hint">Tap to view ✨</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="swiper-slide">
+            <div class="photo-card" data-src="assets/images/photo5.jpeg">
+              <img src="assets/images/photo5.jpeg" alt="My forever favorite" loading="lazy" />
+              <div class="photo-overlay">
+                <p class="photo-caption">Meri Pyaari soti rehne wali bhondu 😘</p>
+                <span class="photo-zoom-hint">Tap to view ✨</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-img" src="" alt="Full view" />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — MEMORY TIMELINE
+  ============================================================ -->
+  <section id="timeline" class="section timeline-section">
+    <div class="container">
+      <div class="section-badge gsap-slide-up">🌟 Our Story</div>
+      <h2 class="section-title gsap-slide-up">Memories I <span class="highlight">Treasure</span></h2>
+      <p class="section-subtitle gsap-slide-up">Every moment with you is a chapter of my favourite story</p>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <!-- Memory 1 -->
+        <div class="timeline-item gsap-timeline-item" data-side="left">
+          <div class="timeline-dot">💕</div>
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">✨ [23 December]</div>
+
+            <h3 class="timeline-title">The Day We First Talked</h3>
+
+            <p class="timeline-text">
+              I still remember the moment I saw your Instagram story for the first time…<br>
+              jaise time thoda sa ruk gaya ho.<br><br>
+
+              Pata nahi kyun… par uss ek second mein laga ki mujhe tumse baat karni chahiye,<br>
+              aur bina soche maine reply kar diya.<br><br>
+
+              Tab shayad mujhe nahi pata tha…<br>
+              ki woh ek chhota sa reply meri life ki sabse beautiful story ki shuruaat ban jayega. 🌸
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Memory 2 -->
+        <div class="timeline-item gsap-timeline-item" data-side="right">
+          <div class="timeline-dot">🎉</div>
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">🗓️ 1 January 2026</div>
+
+            <h3 class="timeline-title">We Started the Year Together</h3>
+
+            <p class="timeline-text">
+              I still remember that night… jab hum call par the,<br>
+              aur clock slowly 12 ki taraf badh raha tha.<br><br>
+
+              Har second ke saath excitement badh rahi thi…<br>
+              aur jaise hi naya saal start hua,<br>
+              humne sabse pehle ek dusre ko wish kiya. ✨<br><br>
+
+              Tumhari woh happiness… woh excitement…<br>
+              abhi bhi yaad hai mujhe.<br><br>
+
+              Shayad duniya ke liye woh bas ek new year tha,<br>
+              par mere liye… woh moment perfectly, beautifully us tha. 💫
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Memory 3 -->
+        <div class="timeline-item gsap-timeline-item" data-side="left">
+          <div class="timeline-dot">💞</div>
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">🗓️ January</div>
+
+            <h3 class="timeline-title">Knowing Each Other</h3>
+
+            <p class="timeline-text">
+              January… jab hum slowly slowly ek dusre ko samajhne lage.<br><br>
+
+              Tumhari soch, tumhari baatein, tumhare dreams…<br>
+              aur surprisingly, sab kuch itna match kar raha tha.<br><br>
+
+              Bachpan ki stories share karna,<br>
+              random baaton pe hasna… aur woh endless talks —<br>
+              sab kuch itna natural lagne laga. 😄<br><br>
+
+              Pata hi nahi chala kab bonding itni strong ho gayi…<br>
+              aur kab care shuru ho gayi…<br><br>
+
+              Shayad wahi woh time tha… jab hum dheere dheere,<br>
+              bina realize kiye… ek dusre ke ho gaye. ❤️
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Memory 4 -->
+        <div class="timeline-item gsap-timeline-item" data-side="right">
+          <div class="timeline-dot">💖</div>
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">🗓️ February</div>
+
+            <h3 class="timeline-title">When Everything Felt Real</h3>
+
+            <p class="timeline-text">
+              February… jab baatein thodi aur deep ho gayi.<br><br>
+
+              Relationships, feelings, expectations…<br>
+              aur har baat mein yeh realize hua ki hum kitna same sochte hain.<br><br>
+
+              Beech mein thode tough moments bhi aaye,<br>
+              par humne unhe saath mein handle kiya… aur aur strong ho gaye. 🤍<br><br>
+
+              Aur phir… future ki baatein shuru hui —<br>
+              hum, humari life… aur humare chhote chhote bacche 😄<br>
+              unhe kaise raise karenge, kaun strict hoga, kaun spoil karega…<br><br>
+
+              Shayad wahi moment tha… jab laga<br>
+              yeh sirf connection nahi hai… yeh kuch real hai. ❤️
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Memory 5 -->
+        <div class="timeline-item gsap-timeline-item" data-side="left">
+          <div class="timeline-dot">🌙</div>
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">🗓️ March</div>
+
+            <h3 class="timeline-title">When Love Became Stronger</h3>
+
+            <p class="timeline-text">
+              March… ek roller coaster jaisa tha.<br><br>
+
+              Shuruat mein sab kuch itna happy, loving aur romantic tha…<br>
+              jaise sab perfect chal raha ho.<br><br>
+
+              Phir beech mein thode tough moments aaye…<br>
+              kuch situations ne thoda hila diya,<br>
+              par uss waqt tumne apna dil khol diya —<br>
+              jo feel karti ho, jo chahti ho… sab bata diya. 🤍<br><br>
+
+              Aur uss moment… maine bhi apna sab kuch keh diya,<br>
+              kitna important ho tum, aur kitna love karta hoon.<br><br>
+
+              Shayad wahi woh phase tha… jab hum sirf close nahi rahe,<br>
+              balki ek dusre ko sach mein samajhne lage.<br><br>
+
+              Ab bina bole bhi samajh aa jata hai…<br>
+              kaise ek dusre ko khush rakhna hai.<br><br>
+
+              Aur tab realize hua…<br>
+              yeh sirf pyaar nahi hai… yeh kuch aur gehra hai. ❤️
+            </p>
+          </div>
+        </div>
+
+        <!-- Memory 6 -->
+        <div class="timeline-item gsap-timeline-item" data-side="center">
+          <div class="timeline-dot">🎂</div>
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">🗓️ 26 March</div>
+
+            <h3 class="timeline-title">The Day You Were Born</h3>
+
+            <p class="timeline-text">
+              Aur aaj… woh din hai jiske bina yeh poori story adhuri hoti.<br><br>
+
+              Aaj ka din sirf birthday nahi hai…<br>
+              yeh woh din hai jab duniya ko tum mili thi,<br>
+              aur meri life ko uska sabse special reason mila. ❤️<br><br>
+
+              Itni saari memories, itni saari baatein…<br>
+              aur har ek moment bas ek hi cheez bolta hai —<br>
+              tum meri life ka best part ho.<br><br>
+
+              Aaj main sirf celebrate nahi kar raha…<br>
+              main thankful hoon… tumhare liye,<br>
+              tumhari presence ke liye,<br>
+              aur uss feeling ke liye jo sirf tumse aati hai. 🤍<br><br>
+
+              Happy Birthday, My Honeybun Nandani 😊❤️<br>
+              aaj ka din, aur meri har smile… sirf tumhare naam. 🌸
+            </p>
+
+          </div>
+        </div>
+      </div> <!-- timeline -->
+  </section> <!-- timeline section -->
+
+  <!-- ============================================================
+       SECTION 5 — BIRTHDAY WISHES
+  ============================================================ -->
+
+  <section id="wishes" class="section wishes-section">
+    <div class="section-orb orb-pink-light"></div>
+
+    <div class="container">
+      <div class="section-badge gsap-slide-up">🎂 Birthday Wishes</div>
+      <h2 class="section-title gsap-slide-up">A Message <span class="highlight">From My Heart</span></h2>
+
+      <div class="wishes-card glass-card gsap-slide-up">
+        <div class="wishes-icon">🌹</div>
+        <p class="wishes-text">
+          <span class="highlight-name">Nandani</span>, you are not just beautiful on the outside —
+          you are radiant, kind and real hearted, warm, and breathtakingly wonderful in every way.
+        </p>
+        <p class="wishes-text mt-2">
+          On this beautiful day, I want you to know that you deserve every happiness the universe has to offer
+          —
+          every dream come true, every wish fulfilled, every moment of pure joy.
+        </p>
+        <p class="wishes-text mt-2">
+          You have made my life so much richer just by being in it. Your smile is my medicine,
+          your voice is my favourite melody, and your love is the greatest adventure of my life.
+        </p>
+        <p class="wishes-quote script-font">
+          "May this birthday bring you all the love, laughter, and magic you bring into my life every single
+          day."
+        </p>
+        <p class="wishes-text mt-2">
+          I love you more than words can say. <strong>Happy Birthday, my Honeybun. 🎂💖</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 6 — 3D CELEBRATION
+  ============================================================ -->
+  <section id="celebration" class="section celebration-section">
+    <div class="container">
+      <div class="section-badge gsap-slide-up">🎊 It's Party Time!</div>
+      <h2 class="section-title gsap-slide-up">Let's <span class="highlight">Celebrate</span> You!</h2>
+
+      <div class="celebration-scene gsap-slide-up">
+
+        <!-- Birthday Cake 3D -->
+        <div class="cake-container" id="birthday-cake">
+          <div class="cake-wrapper">
+            <div class="candle-row">
+              <div class="candle">
+                <div class="flame"></div>
+              </div>
+              <div class="candle">
+                <div class="flame"></div>
+              </div>
+              <div class="candle">
+                <div class="flame"></div>
+              </div>
+            </div>
+            <div class="cake-top layer">
+              <div class="cake-top-face front"></div>
+              <div class="cake-top-face back"></div>
+              <div class="cake-top-face left"></div>
+              <div class="cake-top-face right"></div>
+              <div class="cake-top-face top"></div>
+            </div>
+            <div class="cake-bottom layer">
+              <div class="cake-bottom-face front"></div>
+              <div class="cake-bottom-face back"></div>
+              <div class="cake-bottom-face left"></div>
+              <div class="cake-bottom-face right"></div>
+              <div class="cake-bottom-face top"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Balloons -->
+        <div class="balloons-row" aria-hidden="true">
+          <div class="balloon balloon-pink">🎈</div>
+          <div class="balloon balloon-purple">🎈</div>
+          <div class="balloon balloon-rose">🎈</div>
+          <div class="balloon balloon-lavender">🎈</div>
+          <div class="balloon balloon-gold">🎈</div>
+        </div>
+
+        <!-- Stars Orbit -->
+        <div class="stars-orbit" aria-hidden="true">
+          <div class="star-orb s1">⭐</div>
+          <div class="star-orb s2">✨</div>
+          <div class="star-orb s3">🌟</div>
+          <div class="star-orb s4">💫</div>
+          <div class="star-orb s5">⭐</div>
+        </div>
+
+        <!-- Gift Box 3D -->
+        <div class="gift-box-container" id="gift-box-3d">
+          <div class="gift-box">
+            <div class="gift-face front"></div>
+            <div class="gift-face back"></div>
+            <div class="gift-face left"></div>
+            <div class="gift-face right"></div>
+            <div class="gift-face top"></div>
+            <div class="gift-face bottom"></div>
+            <div class="gift-ribbon-h"></div>
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-bow">🎀</div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="celebration-msg gsap-slide-up">
+        🎉 The whole universe is celebrating <span class="highlight-name">[Her Name]</span> today! 🎉
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — INTERACTIVE SURPRISE
+  ============================================================ -->
+  <section id="surprise" class="section surprise-section">
+    <div class="container">
+      <div class="section-badge gsap-slide-up">🎁 Something Special</div>
+      <h2 class="section-title gsap-slide-up">A Hidden <span class="highlight">Surprise</span> For You</h2>
+      <p class="section-subtitle gsap-slide-up">Are you ready to see what's inside? 🥺</p>
+
+      <div class="surprise-box-wrapper gsap-slide-up" id="surprise-box-wrapper">
+        <!-- Closed state -->
+        <div class="surprise-box" id="surprise-box">
+          <div class="surprise-box-lid" id="surprise-lid">
+            <div class="lid-ribbon">🎀</div>
+          </div>
+          <div class="surprise-box-body">
+            <p class="box-hint">Tap to open</p>
+          </div>
+        </div>
+
+        <!-- Revealed state (hidden by default) -->
+        <div class="surprise-reveal" id="surprise-reveal" aria-hidden="true">
+          <div class="surprise-emoji">🌹💖✨</div>
+          <h3 class="surprise-title script-font">Just for you, my love…</h3>
+          <p class="surprise-message">
+            Every single day with you feels like the best kind of dream.
+            I love you not just on your birthday, but on every single ordinary day in between —
+            the lazy days, the hard days, the random days where nothing special happens
+            but everything is perfect because you're there my Pyaarusa Bhondusa Gadhuda 💕
+          </p>
+          <div class="surprise-hearts" aria-hidden="true">💕 💖 💕 💖 💕</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — LOVE NOTE
+  ============================================================ -->
+  <section id="love-note" class="section love-note-section">
+    <div class="section-orb orb-rose"></div>
+    <div class="container">
+      <div class="section-badge gsap-slide-up">💌 From Me, To You</div>
+      <h2 class="section-title gsap-slide-up">A <span class="highlight">Love Letter</span></h2>
+
+      <div class="love-letter glass-card gsap-slide-up">
+        <div class="letter-top">
+          <span class="letter-stamp">💌</span>
+          <span class="letter-date">[Special Date]</span>
+        </div>
+        <p class="letter-salutation script-font">My dearest Nandani,</p>
+
+        <p class="letter-body">
+          I don’t even know where to start… because what I feel for you isn’t something small that can fit into a few
+          words.<br><br>
+
+          Kabhi kabhi lagta hai… jaise main tumhe hamesha se jaanta hoon.<br>
+          Jaise main bas tumhara wait hi kar raha tha… aur tum suddenly meri life mein aa gayi. 🤍<br><br>
+
+          The way everything started… randomly Instagram par follow karna,<br>
+          phir tumhari story dekhna… aur bina soche reply kar dena —<br>
+          it didn’t feel random… it felt like destiny. ✨<br><br>
+
+          Aur phir dheere dheere… baatein badhti gayi,<br>
+          understanding badhti gayi… aur pata hi nahi chala kab tum meri aadat ban gayi.<br><br>
+
+          What we have… it’s not normal.<br>
+          It’s rare.<br>
+          The way we think, the way we feel, the way we understand each other without even saying much…<br>
+          yeh sab easily nahi milta. ❤️<br><br>
+
+          Aur ek baat sach hai…<br>
+          tumhe shayad khud nahi pata tum kitni special ho,<br>
+          par mujhe pata hai.<br>
+          Mujhe tumhari value pata hai… aur main hamesha tumhe woh sab dena chahta hoon jo tum deserve karti ho.
+          🤍<br><br>
+
+          I don’t just see you in my present…<br>
+          I see you in my future.<br>
+          In my dreams… in the life I want to build… you are a part of all of it.<br><br>
+
+          Aur chahe situation koi bhi ho…<br>
+          acha time ho ya tough time…<br>
+          main hamesha tumhare saath rahunga.<br>
+          Not just in words… but in actions. 💖<br><br>
+
+          You are not just someone I love…<br>
+          you are someone I feel safe with,<br>
+          someone I want to grow with,<br>
+          someone I want to build a life with.<br><br>
+
+          And I promise you this…<br>
+          main tumhe kabhi akela feel nahi hone dunga.<br>
+          Main hamesha tumhara hoon — in every phase, in every version of life. 🌸
+        </p>
+
+        <div class="letter-closing script-font">
+          Forever yours,<br />
+          <strong>Your Prince ❤️</strong>
+        </div>
+        <div class="letter-postscript">
+          💕 Happy Birthday, baby. Today is all yours. 💕
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9 — WISHES FROM THE HEART
+  ============================================================ -->
+  <section id="heart-wishes" class="section heart-wishes-section">
+    <div class="container">
+      <div class="section-badge gsap-slide-up">💝 Wishes For You</div>
+      <h2 class="section-title gsap-slide-up">Everything I <span class="highlight">Wish For You</span></h2>
+
+      <div class="wish-cards-grid">
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">😊</div>
+          <h3 class="wish-title">Endless Happiness</h3>
+          <p class="wish-desc">May your days always be filled with the warmth of laughter and the sweetness of
+            joy.</p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">⭐</div>
+          <h3 class="wish-title">Brilliant Success</h3>
+          <p class="wish-desc">May every dream you chase turn into a reality brighter than you ever imagined.
+          </p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">🌸</div>
+          <h3 class="wish-title">Glowing Health</h3>
+          <p class="wish-desc">May you always feel as beautiful, energetic, and vibrant as you truly are.</p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">💄</div>
+          <h3 class="wish-title">Timeless Beauty</h3>
+          <p class="wish-desc">Not that you need it — you're stunning — but may you always glow from within.
+          </p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">😂</div>
+          <h3 class="wish-title">Loads of Laughter</h3>
+          <p class="wish-desc">Because your laugh is literally the most contagious and beautiful sound in the
+            world.</p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">💖</div>
+          <h3 class="wish-title">Pure Love</h3>
+          <p class="wish-desc">May you always feel as loved as you make others feel — especially me, every
+            single
+            day.
+          </p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">🌠</div>
+          <h3 class="wish-title">Dreams Come True</h3>
+          <p class="wish-desc">May every single wish you made while blowing out your candles become your
+            reality.
+          </p>
+        </div>
+
+        <div class="wish-card glass-card gsap-wish-card">
+          <div class="wish-icon">✈️</div>
+          <h3 class="wish-title">New Adventures</h3>
+          <p class="wish-desc">May this new year of your life be filled with exciting journeys and
+            unforgettable
+            experiences.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10 — GRAND FINALE
+  ============================================================ -->
+  <section id="finale" class="section finale-section">
+    <div class="finale-bg"></div>
+    <div class="finale-orb f-orb-1"></div>
+    <div class="finale-orb f-orb-2"></div>
+    <div class="finale-orb f-orb-3"></div>
+
+    <!-- Fireworks canvas -->
+    <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+
+    <div class="container">
+      <div class="finale-emoji gsap-finale-bounce" aria-hidden="true">🎂🎉🎊</div>
+      <h2 class="finale-title gsap-slide-up">
+        <span class="script-font">Happy Birthday</span><br />
+        <span class="highlight-name">Nandanii</span> 💖
+      </h2>
+      <p class="finale-subtitle gsap-slide-up">
+        Today is all about you, and you deserve the most beautiful day ever.
+        You are loved beyond measure, cherished beyond words, and celebrated with my whole heart.
+      </p>
+
+      <!-- Floating decorative elements -->
+      <div class="finale-decorations gsap-slide-up" aria-hidden="true">
+        <span class="deco-item d1">🌹</span>
+        <span class="deco-item d2">💫</span>
+        <span class="deco-item d3">🎈</span>
+        <span class="deco-item d4">✨</span>
+        <span class="deco-item d5">🌟</span>
+        <span class="deco-item d6">💕</span>
+        <span class="deco-item d7">🎉</span>
+        <span class="deco-item d8">🌸</span>
+      </div>
+
+      <button class="btn-primary btn-finale gsap-slide-up" id="last-surprise-btn">
+        <span>💌</span> Click for One Last Surprise
+      </button>
+
+      <!-- Final message (hidden, revealed on button click) -->
+      <div class="final-message" id="final-message" aria-hidden="true">
+        <div class="final-message-inner glass-card">
+          <p class="script-font final-msg-text">
+            "I love you a thousand ways, in a thousand moments, for a thousand reasons —
+            and every single one of them is <em>you</em>."
+          </p>
+          <div class="final-hearts" aria-hidden="true">💖 🌹 💖 🌹 💖</div>
+          <p class="final-from">— <span class="script-font">With all my love, Prince</span></p>
+        </div>
+      </div>
+
+      <p class="finale-footer gsap-fade">
+        Made with 💖 just for you · <span class="script-font">Prince Ramteke (MACHO-MAN😉❤️)</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FLOATING TAP HEARTS (on screen tap)
+  ============================================================ -->
+  <div id="tap-hearts-container" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- canvas-confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+</body>
+
+</html>
