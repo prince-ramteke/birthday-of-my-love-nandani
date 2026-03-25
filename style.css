@@ -429,7 +429,7 @@ a {
 .hero-bg-image {
   position: absolute;
   inset: 0;
-  background: url('assets/images/hero_bg.png') center/cover no-repeat;
+  background: url('birthday-website/assets/images/hero_bg.png') center/cover no-repeat;
   opacity: 0.12;
   z-index: 0;
 }
